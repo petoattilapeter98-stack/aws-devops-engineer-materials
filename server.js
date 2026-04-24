@@ -1,18 +1,19 @@
-import http from "http";
-import fs from "fs";
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const app = express();
 const port = process.env.PORT || 8080;
 
-http.createServer((req, res) => {
-  if (req.url === "/" || req.url === "/index.html") {
-    const html = fs.readFileSync("./index.html");
-    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-    return res.end(html);
-  }
-  if (req.url === "/health") {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    return res.end(JSON.stringify({ status: "ok" }));
-  }
-  res.writeHead(404);
-  res.end("Not Found");
-}).listen(port, () => console.log(`Listening on ${port}`));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files from /public
+app.use(express.static(path.join(__dirname, "public")));
+
+// Optional health endpoint (handy for ALB health checks)
+app.get("/health", (_req, res) => res.status(200).json({ status: "ok" }));
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});

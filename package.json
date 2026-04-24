@@ -1,7 +1,12 @@
 {
-  "name": "eb-test",
-  "type": "module",
+  "name": "eb-glass-city",
   "version": "1.0.0",
+  "description": "Glassmorphism City at Night - Elastic Beanstalk friendly demo",
   "main": "server.js",
-  "scripts": { "start": "node server.js" }
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }

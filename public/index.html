@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass City — Night</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- FX layers -->
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- Scene -->
+  <div class="scene" id="scene">
+    <div class="vignette" aria-hidden="true"></div>
+
+    <div class="glow glow-1" aria-hidden="true"></div>
+    <div class="glow glow-2" aria-hidden="true"></div>
+
+    <!-- Parallax layers -->
+    <div class="layer sky" data-depth="0.02" aria-hidden="true"></div>
+    <div class="layer stars" data-depth="0.04" aria-hidden="true"></div>
+
+    <div class="layer city city-back" data-depth="0.08" aria-hidden="true"></div>
+    <div class="layer city city-mid" data-depth="0.12" aria-hidden="true"></div>
+    <div class="layer city city-front" data-depth="0.18" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <main class="hud">
+      <header class="top">
+        <div class="brand">
+          <span class="dot"></span>
+          <span>Glass City</span>
+        </div>
+
+        <div class="chips">
+          <button class="chip" id="toggleRain" type="button">Rain: On</button>
+          <button class="chip" id="toggleFog" type="button">Fog: On</button>
+          <button class="chip" id="toggleNeon" type="button">Neon: On</button>
+        </div>
+      </header>
+
+      <section class="card">
+        <h1>City at Night</h1>
+        <p>
+          Glass UI, neon glow, rain, and depth parallax — served from a tiny Node.js app.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="label">Status</span>
+            <span class="value ok">Deployed</span>
+          </div>
+          <div class="stat">
+            <span class="label">Time</span>
+            <span class="value" id="time">--:--</span>
+          </div>
+          <div class="stat">
+            <span class="label">Mode</span>
+            <span class="value" id="mode">Night Ops</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="/health">Health Check</a>
+          <button class="btn" id="pulse" type="button">Pulse Neon</button>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="hint">Move your mouse — parallax + rain respond subtly.</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
