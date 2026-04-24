@@ -12,20 +12,6 @@
   --shadow: 0 20px 60px rgba(0,0,0,.55);
 }
 
-/* Day mode overrides */
-body.day{
-  --bg1:#eaf2ff;
-  --bg2:#b9d8ff;
-  --neon:#2b6cff;
-  --neon2:#00bcd4;
-
-  --text:#071022;
-  --muted:rgba(7,16,34,.70);
-  --stroke:rgba(0,0,0,.10);
-
-  --shadow: 0 20px 60px rgba(0,0,0,.18);
-}
-
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 
@@ -38,13 +24,6 @@ body{
     radial-gradient(900px 600px at 80% 30%, rgba(34,211,238,.18) 0%, transparent 55%),
     linear-gradient(180deg, var(--bg2), var(--bg1));
   overflow:hidden;
-}
-
-body.day{
-  background:
-    radial-gradient(1200px 700px at 20% 10%, rgba(43,108,255,.22) 0%, transparent 60%),
-    radial-gradient(900px 600px at 80% 30%, rgba(0,188,212,.16) 0%, transparent 55%),
-    linear-gradient(180deg, var(--bg2), var(--bg1));
 }
 
 /* FX Canvas */
@@ -71,7 +50,6 @@ body.day{
   z-index:2;
   pointer-events:none;
 }
-body.day .vignette{ opacity:.22; }
 
 /* Soft glows */
 .glow{
@@ -93,13 +71,6 @@ body.day .vignette{ opacity:.22; }
   bottom:-160px;
   background: radial-gradient(circle, rgba(34,211,238,.85) 0%, rgba(34,211,238,0) 60%);
 }
-
-/* Day-only sunlight glow */
-body.day .glow-1{
-  opacity:.38;
-  background: radial-gradient(circle, rgba(255,210,110,.85) 0%, rgba(255,210,110,0) 60%);
-}
-body.day .glow-2{ opacity:.16; }
 
 /* Parallax layers */
 .layer{
@@ -130,7 +101,6 @@ body.day .glow-2{ opacity:.16; }
   opacity:.55;
   z-index:0;
 }
-body.day .stars{ opacity:0.08; }
 
 /* Hills */
 .hills{
@@ -164,32 +134,15 @@ body.day .stars{ opacity:0.08; }
   );
 }
 
-/* Day hills are lighter */
-body.day .hills-back{
-  opacity:.18;
-  background-image:
-    linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.10) 60%, rgba(0,0,0,.06) 100%),
-    linear-gradient(0deg, rgba(120,170,140,.18) 0%, rgba(120,170,140,.18) 100%);
-}
-body.day .hills-mid{
-  opacity:.24;
-  background-image:
-    linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,.04) 100%),
-    linear-gradient(0deg, rgba(90,150,120,.20) 0%, rgba(90,150,120,.20) 100%);
-}
-
 /* Village */
 .village{
-  background-repeat:no-repeat;
-  background-position:center bottom;
-  background-size:cover;
   z-index:2;
 }
 .village-back{
   opacity:.60;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.62) 100%),
-    radial-gradient(1200px 520px at 50% 100%, rgba(124,77,255,.12), transparent 55%),
+    radial-gradient(1200px 520px at 50% 100%, rgba(124,77,255,.25), transparent 55%),
     linear-gradient(0deg, #070814 0%, #070814 100%);
   clip-path: polygon(
     0 86%, 6% 86%, 8% 84%, 10% 86%,
@@ -210,7 +163,7 @@ body.day .hills-mid{
   opacity:.85;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,.80) 100%),
-    radial-gradient(1200px 480px at 50% 100%, rgba(124,77,255,.10), transparent 52%),
+    radial-gradient(1200px 480px at 50% 100%, rgba(124,77,255,.20), transparent 52%),
     linear-gradient(0deg, #050614 0%, #050614 100%);
   clip-path: polygon(
     0 90%,
@@ -232,7 +185,7 @@ body.day .hills-mid{
   opacity:0.9;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.28) 35%, rgba(0,0,0,.90) 100%),
-    radial-gradient(1200px 460px at 50% 100%, rgba(34,211,238,.12), transparent 48%),
+    radial-gradient(1200px 460px at 50% 100%, rgba(34,211,238,.20), transparent 48%),
     linear-gradient(0deg, #040511 0%, #040511 100%);
   clip-path: polygon(
     0 94%, 10% 91%, 20% 93%, 30% 89%, 40% 92%,
@@ -245,7 +198,7 @@ body.day .hills-mid{
   opacity:0.8;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.30) 30%, rgba(0,0,0,.95) 100%),
-    radial-gradient(1200px 500px at 50% 100%, rgba(34,211,238,.15), transparent 50%),
+    radial-gradient(1200px 500px at 50% 100%, rgba(34,211,238,.25), transparent 50%),
     linear-gradient(0deg, #03040e 0%, #03040e 100%);
   clip-path: polygon(
     0 88%, 15% 86%, 30% 87%, 45% 84%, 60% 86%,
@@ -253,10 +206,6 @@ body.day .hills-mid{
     100% 100%, 0 100%
   );
 }
-body.day .village-back{ opacity:.15; }
-body.day .village-mid{ opacity:.20; }
-body.day .village-front{ opacity:.25; }
-body.day .village-forefront{ opacity:.30; }
 
 /* HUD */
 .hud{
@@ -309,7 +258,6 @@ body.day .village-forefront{ opacity:.30; }
   backdrop-filter: blur(10px);
   color:var(--muted);
 }
-body.day .badge{ background:rgba(255,255,255,.50); }
 
 .chips{
   display:flex;
@@ -347,7 +295,6 @@ body.day .badge{ background:rgba(255,255,255,.50); }
   color: rgba(232,236,255,.6);
   font-size: 12px;
 }
-body.day .hint{ color: rgba(7,16,34,.55); }
 
 .mini-link{
   font-size:12px;
