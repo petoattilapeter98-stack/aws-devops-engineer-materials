@@ -10,7 +10,7 @@ const state = {
   h: 0,
   drops: [],
   fogPuffs: [],
-  village: { buildings: [] },
+  hills: [],
   t: 0
 };
 
@@ -31,7 +31,7 @@ window.addEventListener("resize", () => {
   resize();
   seedRain();
   seedFog();
-  seedVillage();
+  seedHills();
 });
 
 resize();
@@ -113,59 +113,15 @@ function seedFog() {
 
 seedFog();
 
-function seedVillage() {
-  state.village.buildings = [
-    // Back layer depth 0.10
-    {x: 0.05, y: 0.78, w: 0.03, h: 0.22, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.12, y: 0.77, w: 0.04, h: 0.23, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.81}]},
-    {x: 0.20, y: 0.76, w: 0.03, h: 0.24, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.80}]},
-    {x: 0.28, y: 0.78, w: 0.04, h: 0.22, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.36, y: 0.75, w: 0.03, h: 0.25, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.79}]},
-    {x: 0.44, y: 0.77, w: 0.04, h: 0.23, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.81}]},
-    {x: 0.52, y: 0.78, w: 0.03, h: 0.22, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.60, y: 0.76, w: 0.04, h: 0.24, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.80}]},
-    {x: 0.68, y: 0.77, w: 0.03, h: 0.23, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.81}]},
-    {x: 0.76, y: 0.78, w: 0.04, h: 0.22, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.84, y: 0.76, w: 0.03, h: 0.24, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.80}]},
-    {x: 0.92, y: 0.77, w: 0.04, h: 0.23, depth: 0.10, color: 'rgba(124,77,255,0.5)', windows: [{x:0.5, y:0.81}]},
-
-    // Mid layer depth 0.14
-    {x: 0.03, y: 0.79, w: 0.04, h: 0.21, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.83}]},
-    {x: 0.10, y: 0.78, w: 0.05, h: 0.22, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.18, y: 0.77, w: 0.04, h: 0.23, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.81}]},
-    {x: 0.26, y: 0.79, w: 0.05, h: 0.21, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.83}]},
-    {x: 0.34, y: 0.75, w: 0.04, h: 0.25, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.79}]},
-    {x: 0.42, y: 0.77, w: 0.05, h: 0.23, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.81}]},
-    {x: 0.50, y: 0.78, w: 0.04, h: 0.22, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.58, y: 0.76, w: 0.05, h: 0.24, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.80}]},
-    {x: 0.66, y: 0.77, w: 0.04, h: 0.23, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.81}]},
-    {x: 0.74, y: 0.79, w: 0.05, h: 0.21, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.83}]},
-    {x: 0.82, y: 0.78, w: 0.04, h: 0.22, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.90, y: 0.77, w: 0.05, h: 0.23, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.81}]},
-    {x: 0.97, y: 0.78, w: 0.03, h: 0.22, depth: 0.14, color: 'rgba(124,77,255,0.4)', windows: [{x:0.5, y:0.82}]},
-
-    // Front layer depth 0.18
-    {x: 0.10, y: 0.85, w: 0.10, h: 0.15, depth: 0.18, color: 'rgba(34,211,238,0.6)', windows: [{x:0.2, y:0.87}, {x:0.5, y:0.87}, {x:0.8, y:0.87}]},
-    {x: 0.25, y: 0.83, w: 0.10, h: 0.17, depth: 0.18, color: 'rgba(34,211,238,0.6)', windows: [{x:0.3, y:0.85}, {x:0.7, y:0.85}]},
-    {x: 0.40, y: 0.86, w: 0.08, h: 0.14, depth: 0.18, color: 'rgba(34,211,238,0.6)', windows: [{x:0.5, y:0.88}]},
-    {x: 0.53, y: 0.84, w: 0.12, h: 0.16, depth: 0.18, color: 'rgba(34,211,238,0.6)', windows: [{x:0.2, y:0.86}, {x:0.5, y:0.86}, {x:0.8, y:0.86}]},
-    {x: 0.70, y: 0.81, w: 0.10, h: 0.19, depth: 0.18, color: 'rgba(34,211,238,0.6)', windows: [{x:0.3, y:0.83}, {x:0.7, y:0.83}]},
-    {x: 0.85, y: 0.84, w: 0.08, h: 0.16, depth: 0.18, color: 'rgba(34,211,238,0.6)', windows: [{x:0.5, y:0.86}]},
-
-    // Forefront layer depth 0.22
-    {x: 0.15, y: 0.80, w: 0.10, h: 0.20, depth: 0.22, color: 'rgba(34,211,238,0.7)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.30, y: 0.81, w: 0.08, h: 0.19, depth: 0.22, color: 'rgba(34,211,238,0.7)', windows: [{x:0.5, y:0.83}]},
-    {x: 0.43, y: 0.78, w: 0.12, h: 0.22, depth: 0.22, color: 'rgba(34,211,238,0.7)', windows: [{x:0.3, y:0.80}, {x:0.7, y:0.80}]},
-    {x: 0.60, y: 0.80, w: 0.10, h: 0.20, depth: 0.22, color: 'rgba(34,211,238,0.7)', windows: [{x:0.5, y:0.82}]},
-    {x: 0.75, y: 0.77, w: 0.08, h: 0.23, depth: 0.22, color: 'rgba(34,211,238,0.7)', windows: [{x:0.5, y:0.79}]},
-    {x: 0.88, y: 0.79, w: 0.08, h: 0.21, depth: 0.22, color: 'rgba(34,211,238,0.7)', windows: [{x:0.5, y:0.81}]},
+function seedHills() {
+  state.hills = [
+    { x: -0.2, y: 0.7, w: 0.8, h: 0.3, depth: 0.05, phase: 0 },
+    { x: 0.3, y: 0.75, w: 0.7, h: 0.25, depth: 0.08, phase: Math.PI / 2 },
+    { x: 0.8, y: 0.72, w: 0.6, h: 0.28, depth: 0.06, phase: Math.PI },
   ];
-
-  // Sort by depth descending (back first)
-  state.village.buildings.sort((a, b) => b.depth - a.depth);
 }
 
-seedVillage();
+seedHills();
 
 function drawRain() {
   const wind = state.mx * 2.4;
@@ -226,26 +182,29 @@ function drawFog() {
   }
 }
 
-function drawVillage() {
-  for (const b of state.village.buildings) {
-    const tx = -state.mx * 18 * b.depth;
-    const ty = -state.my * 14 * b.depth;
-    const bx = b.x * state.w + tx;
-    const by = b.y * state.h + ty;
-    const bw = b.w * state.w;
-    const bh = b.h * state.h;
+function drawHills() {
+  for (const hill of state.hills) {
+    const tx = -state.mx * 18 * hill.depth;
+    const ty = -state.my * 14 * hill.depth;
+    const hx = hill.x * state.w + tx;
+    const hy = hill.y * state.h + ty + Math.sin(state.t * 0.5 + hill.phase) * 5; // slight movement
+    const hw = hill.w * state.w;
+    const hh = hill.h * state.h;
 
-    // Draw building silhouette
-    ctx.fillStyle = b.color;
-    ctx.fillRect(bx, by, bw, bh);
+    // Draw hill as an ellipse
+    ctx.fillStyle = 'rgba(20,20,40,0.8)'; // dark hill
+    ctx.beginPath();
+    ctx.ellipse(hx + hw / 2, hy + hh / 2, hw / 2, hh / 2, 0, 0, Math.PI * 2);
+    ctx.fill();
 
-    // Draw windows
-    for (const w of b.windows) {
-      const wx = bx + w.x * bw - 6;
-      const wy = by + w.y * state.h - 6;
-      ctx.fillStyle = 'rgba(255,255,255,0.9)';
-      ctx.fillRect(wx, wy, 12, 12);
-    }
+    // Add a subtle glow
+    const gradient = ctx.createRadialGradient(hx + hw / 2, hy + hh / 2, 0, hx + hw / 2, hy + hh / 2, hw / 2);
+    gradient.addColorStop(0, 'rgba(124,77,255,0.2)');
+    gradient.addColorStop(1, 'rgba(124,77,255,0)');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.ellipse(hx + hw / 2, hy + hh / 2, hw / 2, hh / 2, 0, 0, Math.PI * 2);
+    ctx.fill();
   }
 }
 
@@ -259,7 +218,7 @@ function tick() {
 
   ctx.fillRect(0, 0, state.w, state.h);
 
-  drawVillage();
+  drawHills();
 
   if (state.fog) drawFog();
   if (state.rain) drawRain();
