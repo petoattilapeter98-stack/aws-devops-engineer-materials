@@ -1,7 +1,8 @@
 {
-  "name": "eb-glass-city",
+  "name": "eb-glass-village",
   "version": "1.0.0",
-  "description": "Glassmorphism City at Night - Elastic Beanstalk friendly demo",
+  "description": "Glassmorphism Village with Hills + Day/Night + Rain/Fog (Elastic Beanstalk friendly)",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

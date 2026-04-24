@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Glass City — Night</title>
+  <title>Glass Village — Day/Night</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- FX layers -->
+  <!-- FX canvas (rain/fog overlay) -->
   <canvas id="fx" aria-hidden="true"></canvas>
 
-  <!-- Scene -->
   <div class="scene" id="scene">
     <div class="vignette" aria-hidden="true"></div>
 
@@ -21,54 +20,34 @@
     <div class="layer sky" data-depth="0.02" aria-hidden="true"></div>
     <div class="layer stars" data-depth="0.04" aria-hidden="true"></div>
 
-    <div class="layer city city-back" data-depth="0.08" aria-hidden="true"></div>
-    <div class="layer city city-mid" data-depth="0.12" aria-hidden="true"></div>
-    <div class="layer city city-front" data-depth="0.18" aria-hidden="true"></div>
+    <!-- Hills behind village -->
+    <div class="layer hills hills-back" data-depth="0.06" aria-hidden="true"></div>
+    <div class="layer hills hills-mid" data-depth="0.09" aria-hidden="true"></div>
 
-    <!-- Content -->
+    <!-- Village silhouette -->
+    <div class="layer village village-back" data-depth="0.10" aria-hidden="true"></div>
+    <div class="layer village village-mid" data-depth="0.14" aria-hidden="true"></div>
+    <div class="layer village village-front" data-depth="0.18" aria-hidden="true"></div>
+
+    <!-- Minimal glass HUD (no big widget) -->
     <main class="hud">
       <header class="top">
         <div class="brand">
           <span class="dot"></span>
-          <span>Glass City</span>
+          <span class="brand-title">Glass Village</span>
+          <span class="badge" id="modeLabel">Night</span>
         </div>
 
         <div class="chips">
+          <button class="chip" id="toggleMode" type="button">Mode: Night</button>
           <button class="chip" id="toggleRain" type="button">Rain: On</button>
           <button class="chip" id="toggleFog" type="button">Fog: On</button>
-          <button class="chip" id="toggleNeon" type="button">Neon: On</button>
         </div>
       </header>
 
-      <section class="card">
-        <h1>City at Night</h1>
-        <p>
-          Glass UI, neon glow, rain, and depth parallax — served from a tiny Node.js app.
-        </p>
-
-        <div class="stats">
-          <div class="stat">
-            <span class="label">Status</span>
-            <span class="value ok">Deployed</span>
-          </div>
-          <div class="stat">
-            <span class="label">Time</span>
-            <span class="value" id="time">--:--</span>
-          </div>
-          <div class="stat">
-            <span class="label">Mode</span>
-            <span class="value" id="mode">Night Ops</span>
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn primary" href="/health">Health Check</a>
-          <button class="btn" id="pulse" type="button">Pulse Neon</button>
-        </div>
-      </section>
-
       <footer class="footer">
-        <span class="hint">Move your mouse — parallax + rain respond subtly.</span>
+        <span class="hint">Move your mouse — parallax + weather react subtly.</span>
+        <a class="mini-link" href="/health">/health</a>
       </footer>
     </main>
   </div>
