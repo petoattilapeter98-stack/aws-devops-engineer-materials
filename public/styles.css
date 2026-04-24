@@ -112,7 +112,17 @@ body{
   background-image:
     linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 45%, rgba(0,0,0,.20) 100%),
     radial-gradient(1200px 520px at 50% 100%, rgba(124,77,255,.50), transparent 55%),
-    linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 100%);
+    linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 100%),
+    radial-gradient(12px 12px at 8% 82%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 17% 79%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 26% 76%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 35% 78%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 44% 75%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 54% 77%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 63% 78%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 72% 76%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 81% 77%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 90% 78%, rgba(255,255,255,0.9), transparent 25%);
   box-shadow: 0 0 30px rgba(124,77,255,0.6);
   clip-path: polygon(
     0 80%, 6% 80%, 8% 78%, 10% 80%,
@@ -134,7 +144,18 @@ body{
   background-image:
     linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 40%, rgba(0,0,0,.30) 100%),
     radial-gradient(1200px 480px at 50% 100%, rgba(124,77,255,.40), transparent 52%),
-    linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 100%);
+    linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 100%),
+    radial-gradient(12px 12px at 7% 79%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 16% 78%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 25% 77%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 34% 79%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 43% 75%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 52% 77%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 61% 79%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 70% 76%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 79% 78%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 88% 79%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 97% 80%, rgba(255,255,255,0.9), transparent 25%);
   box-shadow: 0 0 30px rgba(34,211,238,0.6);
   clip-path: polygon(
     0 85%,
@@ -157,7 +178,17 @@ body{
   background-image:
     linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 35%, rgba(0,0,0,.40) 100%),
     radial-gradient(1200px 460px at 50% 100%, rgba(34,211,238,.40), transparent 48%),
-    linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 100%);
+    linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 100%),
+    radial-gradient(12px 12px at 10% 85%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 20% 87%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 30% 83%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 40% 86%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 47% 84%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 53% 84%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 60% 82%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 70% 85%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 80% 81%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 90% 84%, rgba(255,255,255,0.9), transparent 25%);
   box-shadow: 0 0 30px rgba(34,211,238,0.6);
   clip-path: polygon(
     0 88%, 10% 85%, 20% 87%, 30% 83%, 40% 86%,
@@ -171,7 +202,13 @@ body{
   background-image:
     linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 30%, rgba(0,0,0,.45) 100%),
     radial-gradient(1200px 500px at 50% 100%, rgba(34,211,238,.45), transparent 50%),
-    linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 100%);
+    linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 100%),
+    radial-gradient(12px 12px at 15% 80%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 30% 81%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 45% 78%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 60% 80%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 75% 77%, rgba(255,255,255,0.9), transparent 25%),
+    radial-gradient(12px 12px at 90% 79%, rgba(255,255,255,0.9), transparent 25%);
   box-shadow: 0 0 30px rgba(34,211,238,0.6);
   clip-path: polygon(
     0 82%, 15% 80%, 30% 81%, 45% 78%, 60% 80%,
