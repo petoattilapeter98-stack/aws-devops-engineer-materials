@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d", { alpha: true });
 const state = {
   rain: true,
   fog: true,
-  neon: true,
+  night: true,
   mx: 0,
   my: 0,
   w: 0,
@@ -18,13 +18,21 @@ function resize() {
   const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
   state.w = Math.floor(window.innerWidth);
   state.h = Math.floor(window.innerHeight);
+
   canvas.width = Math.floor(state.w * dpr);
   canvas.height = Math.floor(state.h * dpr);
   canvas.style.width = state.w + "px";
   canvas.style.height = state.h + "px";
+
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
-window.addEventListener("resize", resize);
+
+window.addEventListener("resize", () => {
+  resize();
+  seedRain();
+  seedFog();
+});
+
 resize();
 
 /** Parallax */
@@ -43,51 +51,11 @@ window.addEventListener("pointermove", (e) => {
   }
 });
 
-/** Rain */
-function seedRain() {
-  state.drops = [];
-  const count = Math.floor(Math.min(900, Math.max(220, state.w * 0.45)));
-  for (let i = 0; i < count; i++) {
-    state.drops.push(makeDrop(true));
-  }
-}
-function makeDrop(randomY = false) {
-  const x = Math.random() * state.w;
-  const y = randomY ? Math.random() * state.h : -Math.random() * state.h;
-  const len = 10 + Math.random() * 18;
-  const speed = 8 + Math.random() * 16;
-  const thickness = 1 + Math.random() * 1.2;
-  const drift = -1.5 + Math.random() * 3;
-  const alpha = 0.12 + Math.random() * 0.18;
-  return { x, y, len, speed, thickness, drift, alpha };
-}
-seedRain();
-window.addEventListener("resize", seedRain);
-
-/** Fog */
-function seedFog() {
-  state.fogPuffs = [];
-  const count = 18;
-  for (let i = 0; i < count; i++) {
-    state.fogPuffs.push({
-      x: Math.random() * state.w,
-      y: state.h * (0.45 + Math.random() * 0.55),
-      r: 120 + Math.random() * 220,
-      vx: 0.15 + Math.random() * 0.35,
-      a: 0.02 + Math.random() * 0.05
-    });
-  }
-}
-seedFog();
-window.addEventListener("resize", seedFog);
-
-/** UI wiring */
+/** UI */
+const toggleMode = document.getElementById("toggleMode");
 const toggleRain = document.getElementById("toggleRain");
 const toggleFog = document.getElementById("toggleFog");
-const toggleNeon = document.getElementById("toggleNeon");
-const pulseBtn = document.getElementById("pulse");
-const timeEl = document.getElementById("time");
-const modeEl = document.getElementById("mode");
+const modeLabel = document.getElementById("modeLabel");
 
 function setChip(btn, on, label) {
   btn.textContent = `${label}: ${on ? "On" : "Off"}`;
@@ -95,9 +63,20 @@ function setChip(btn, on, label) {
   btn.style.boxShadow = on ? "0 0 0 1px rgba(34,211,238,.18) inset" : "none";
 }
 
-setChip(toggleRain, state.rain, "Rain");
-setChip(toggleFog, state.fog, "Fog");
-setChip(toggleNeon, state.neon, "Neon");
+function applyMode() {
+  document.body.classList.toggle("day", !state.night);
+  toggleMode.textContent = `Mode: ${state.night ? "Night" : "Day"}`;
+  modeLabel.textContent = state.night ? "Night" : "Day";
+
+  // Reseed for slightly different feel
+  seedFog();
+  seedRain();
+}
+
+toggleMode.addEventListener("click", () => {
+  state.night = !state.night;
+  applyMode();
+});
 
 toggleRain.addEventListener("click", () => {
   state.rain = !state.rain;
@@ -109,45 +88,67 @@ toggleFog.addEventListener("click", () => {
   setChip(toggleFog, state.fog, "Fog");
 });
 
-toggleNeon.addEventListener("click", () => {
-  state.neon = !state.neon;
-  setChip(toggleNeon, state.neon, "Neon");
-  document.documentElement.style.setProperty("--neon", state.neon ? "#7c4dff" : "#1b1f4d");
-  document.documentElement.style.setProperty("--neon2", state.neon ? "#22d3ee" : "#334155");
-  modeEl.textContent = state.neon ? "Night Ops" : "Stealth";
-});
+setChip(toggleRain, state.rain, "Rain");
+setChip(toggleFog, state.fog, "Fog");
+applyMode();
 
-pulseBtn.addEventListener("click", () => {
-  // quick glow pulse
-  const g1 = document.querySelector(".glow-1");
-  const g2 = document.querySelector(".glow-2");
-  g1.animate([{ opacity: 0.55 }, { opacity: 0.95 }, { opacity: 0.55 }], { duration: 900, easing: "ease-in-out" });
-  g2.animate([{ opacity: 0.55 }, { opacity: 0.90 }, { opacity: 0.55 }], { duration: 900, easing: "ease-in-out" });
-});
+/** Rain */
+function seedRain() {
+  state.drops = [];
+  const density = state.night ? 0.50 : 0.36;
+  const count = Math.floor(Math.min(900, Math.max(160, state.w * density)));
+  for (let i = 0; i < count; i++) state.drops.push(makeDrop(true));
+}
 
-/** Clock */
-setInterval(() => {
-  const d = new Date();
-  timeEl.textContent = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-}, 500);
+function makeDrop(randomY = false) {
+  const x = Math.random() * state.w;
+  const y = randomY ? Math.random() * state.h : -Math.random() * state.h;
+  const len = 10 + Math.random() * 18;
+  const speed = 8 + Math.random() * 16;
+  const thickness = 1 + Math.random() * 1.2;
+  const drift = -1.5 + Math.random() * 3;
+  const alphaBase = 0.12 + Math.random() * 0.18;
+  return { x, y, len, speed, thickness, drift, alphaBase };
+}
 
-/** Render loop */
+seedRain();
+
+/** Fog */
+function seedFog() {
+  state.fogPuffs = [];
+  const count = state.night ? 18 : 14;
+  for (let i = 0; i < count; i++) {
+    state.fogPuffs.push({
+      x: Math.random() * state.w,
+      y: state.h * (0.50 + Math.random() * 0.50),
+      r: 120 + Math.random() * 220,
+      vx: 0.14 + Math.random() * 0.32,
+      a: (state.night ? 0.020 : 0.016) + Math.random() * (state.night ? 0.045 : 0.040)
+    });
+  }
+}
+
+seedFog();
+
+/** Drawing */
 function drawRain() {
   const wind = state.mx * 2.4;
   ctx.lineCap = "round";
+
+  const base = state.night ? [220, 235, 255] : [110, 130, 150];
+  const alphaMul = state.night ? 1.0 : 0.75;
 
   for (const d of state.drops) {
     d.x += (d.drift + wind) * 0.9;
     d.y += d.speed;
 
-    // slight perspective: thicker near bottom
     const p = d.y / state.h;
     const thick = d.thickness * (0.6 + p * 0.9);
 
-    ctx.strokeStyle = `rgba(220, 235, 255, ${d.alpha})`;
+    const a = d.alphaBase * alphaMul;
+    ctx.strokeStyle = `rgba(${base[0]}, ${base[1]}, ${base[2]}, ${a})`;
     ctx.lineWidth = thick;
 
-    // slant by wind
     const sx = d.x;
     const sy = d.y;
     const ex = d.x + wind * 1.5;
@@ -166,10 +167,14 @@ function drawRain() {
 }
 
 function drawFog() {
-  // soft fog gradient at bottom + drifting puffs
   const g = ctx.createLinearGradient(0, state.h * 0.55, 0, state.h);
-  g.addColorStop(0, "rgba(255,255,255,0)");
-  g.addColorStop(1, "rgba(200,220,255,0.10)");
+  if (state.night) {
+    g.addColorStop(0, "rgba(255,255,255,0)");
+    g.addColorStop(1, "rgba(200,220,255,0.10)");
+  } else {
+    g.addColorStop(0, "rgba(255,255,255,0)");
+    g.addColorStop(1, "rgba(255,255,255,0.14)");
+  }
   ctx.fillStyle = g;
   ctx.fillRect(0, state.h * 0.55, state.w, state.h);
 
@@ -178,8 +183,10 @@ function drawFog() {
     if (f.x - f.r > state.w) f.x = -f.r;
 
     const rg = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r);
-    rg.addColorStop(0, `rgba(210,230,255,${f.a})`);
+    const alpha = state.night ? f.a : f.a * 1.2;
+    rg.addColorStop(0, `rgba(210,230,255,${alpha})`);
     rg.addColorStop(1, "rgba(210,230,255,0)");
+
     ctx.fillStyle = rg;
     ctx.beginPath();
     ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
@@ -191,9 +198,14 @@ function tick() {
   state.t += 0.016;
   ctx.clearRect(0, 0, state.w, state.h);
 
-  // subtle shimmer for “wet lens”
-  const shimmer = 0.03 + (Math.sin(state.t * 0.8) * 0.01);
-  ctx.fillStyle = `rgba(124,77,255,${shimmer})`;
+  const shimmer = state.night
+    ? (0.028 + (Math.sin(state.t * 0.8) * 0.010))
+    : (0.012 + (Math.sin(state.t * 0.7) * 0.006));
+
+  ctx.fillStyle = state.night
+    ? `rgba(124,77,255,${shimmer})`
+    : `rgba(43,108,255,${shimmer})`;
+
   ctx.fillRect(0, 0, state.w, state.h);
 
   if (state.fog) drawFog();
@@ -201,4 +213,5 @@ function tick() {
 
   requestAnimationFrame(tick);
 }
+
 tick();

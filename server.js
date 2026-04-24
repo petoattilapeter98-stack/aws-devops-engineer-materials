@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 // Serve static files from /public
 app.use(express.static(path.join(__dirname, "public")));
 
-// Optional health endpoint (nice for EB/ALB health checks)
+// Optional health endpoint
 app.get("/health", (_req, res) => res.status(200).json({ status: "ok" }));
 
 app.listen(port, () => {

@@ -9,10 +9,7 @@
   --text:#e8ecff;
   --muted:rgba(232,236,255,.72);
 
-  --glass:rgba(255,255,255,.08);
-  --glass2:rgba(255,255,255,.12);
   --stroke:rgba(255,255,255,.18);
-
   --shadow: 0 20px 60px rgba(0,0,0,.55);
 }
 
@@ -27,10 +24,7 @@ body.day{
   --text:#071022;
   --muted:rgba(7,16,34,.70);
 
-  --glass:rgba(255,255,255,.55);
-  --glass2:rgba(255,255,255,.72);
   --stroke:rgba(0,0,0,.10);
-
   --shadow: 0 20px 60px rgba(0,0,0,.18);
 }
 
@@ -79,9 +73,7 @@ body.day{
   z-index:2;
   pointer-events:none;
 }
-body.day .vignette{
-  opacity:.22;
-}
+body.day .vignette{ opacity:.22; }
 
 /* Soft glows */
 .glow{
@@ -109,9 +101,7 @@ body.day .glow-1{
   opacity:.38;
   background: radial-gradient(circle, rgba(255,210,110,.85) 0%, rgba(255,210,110,0) 60%);
 }
-body.day .glow-2{
-  opacity:.16;
-}
+body.day .glow-2{ opacity:.16; }
 
 /* Parallax layers */
 .layer{
@@ -138,24 +128,19 @@ body.day .glow-2{
     radial-gradient(2px 2px at 70% 15%, rgba(255,255,255,.75) 50%, transparent 55%),
     radial-gradient(1px 1px at 85% 40%, rgba(255,255,255,.55) 50%, transparent 55%),
     radial-gradient(2px 2px at 25% 55%, rgba(255,255,255,.65) 50%, transparent 55%),
-    radial-gradient(1px 1px at 60% 60%, rgba(255,255,255,.6) 50%, transparent 55%),
-    radial-gradient(2px 2px at 78% 70%, rgba(255,255,255,.5) 50%, transparent 55%),
-    radial-gradient(1px 1px at 12% 78%, rgba(255,255,255,.55) 50%, transparent 55%);
+    radial-gradient(1px 1px at 60% 60%, rgba(255,255,255,.6) 50%, transparent 55%);
   opacity:.55;
   z-index:0;
 }
-body.day .stars{
-  opacity:0.08;
-}
+body.day .stars{ opacity:0.08; }
 
-/* Hills (behind village) */
+/* Hills */
 .hills{
   background-repeat:no-repeat;
   background-position:center bottom;
   background-size:cover;
   z-index:1;
 }
-
 .hills-back{
   opacity:.35;
   background-image:
@@ -163,21 +148,11 @@ body.day .stars{
     radial-gradient(1200px 600px at 50% 100%, rgba(124,77,255,.10), transparent 60%),
     linear-gradient(0deg, #070814 0%, #070814 100%);
   clip-path: polygon(
-    0 74%,
-    10% 70%,
-    22% 73%,
-    34% 68%,
-    46% 71%,
-    58% 66%,
-    70% 70%,
-    82% 65%,
-    94% 69%,
-    100% 66%,
-    100% 100%,
-    0 100%
+    0 74%, 10% 70%, 22% 73%, 34% 68%, 46% 71%,
+    58% 66%, 70% 70%, 82% 65%, 94% 69%, 100% 66%,
+    100% 100%, 0 100%
   );
 }
-
 .hills-mid{
   opacity:.55;
   background-image:
@@ -185,18 +160,9 @@ body.day .stars{
     radial-gradient(1200px 540px at 50% 100%, rgba(34,211,238,.10), transparent 58%),
     linear-gradient(0deg, #050614 0%, #050614 100%);
   clip-path: polygon(
-    0 82%,
-    8% 78%,
-    20% 80%,
-    30% 76%,
-    42% 79%,
-    54% 74%,
-    66% 78%,
-    78% 72%,
-    90% 76%,
-    100% 73%,
-    100% 100%,
-    0 100%
+    0 82%, 8% 78%, 20% 80%, 30% 76%, 42% 79%,
+    54% 74%, 66% 78%, 78% 72%, 90% 76%, 100% 73%,
+    100% 100%, 0 100%
   );
 }
 
@@ -214,15 +180,13 @@ body.day .hills-mid{
     linear-gradient(0deg, rgba(90,150,120,.20) 0%, rgba(90,150,120,.20) 100%);
 }
 
-/* Village silhouettes */
+/* Village */
 .village{
   background-repeat:no-repeat;
   background-position:center bottom;
   background-size:cover;
   z-index:2;
 }
-
-/* Distant village line */
 .village-back{
   opacity:.42;
   background-image:
@@ -230,8 +194,7 @@ body.day .hills-mid{
     radial-gradient(1200px 520px at 50% 100%, rgba(124,77,255,.12), transparent 55%),
     linear-gradient(0deg, #070814 0%, #070814 100%);
   clip-path: polygon(
-    0 86%,
-    6% 86%, 8% 84%, 10% 86%,
+    0 86%, 6% 86%, 8% 84%, 10% 86%,
     15% 86%, 17% 83%, 19% 86%,
     24% 86%, 26% 82%, 28% 86%,
     33% 86%, 35% 84%, 37% 86%,
@@ -245,8 +208,6 @@ body.day .hills-mid{
     100% 100%, 0 100%
   );
 }
-
-/* Main houses row */
 .village-mid{
   opacity:.70;
   background-image:
@@ -268,38 +229,23 @@ body.day .hills-mid{
     100% 100%, 0 100%
   );
 }
-
-/* Foreground hill + a tiny chapel tower bump */
 .village-front{
   opacity:.92;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.28) 35%, rgba(0,0,0,.90) 100%),
     linear-gradient(0deg, #040511 0%, #040511 100%);
   clip-path: polygon(
-    0 94%,
-    10% 91%,
-    20% 93%,
-    30% 89%,
-    40% 92%,
-    47% 90%,
-    50% 80%,
-    53% 90%,
-    60% 88%,
-    70% 91%,
-    80% 87%,
-    90% 90%,
-    100% 88%,
-    100% 100%,
-    0 100%
+    0 94%, 10% 91%, 20% 93%, 30% 89%, 40% 92%,
+    47% 90%, 50% 80%, 53% 90%,
+    60% 88%, 70% 91%, 80% 87%, 90% 90%, 100% 88%,
+    100% 100%, 0 100%
   );
 }
-
-/* Day silhouette adjustments */
 body.day .village-back{ opacity:.22; }
 body.day .village-mid{ opacity:.30; }
 body.day .village-front{ opacity:.40; }
 
-/* Glass HUD */
+/* HUD */
 .hud{
   position:relative;
   z-index:20;
@@ -350,9 +296,7 @@ body.day .village-front{ opacity:.40; }
   backdrop-filter: blur(10px);
   color:var(--muted);
 }
-body.day .badge{
-  background:rgba(255,255,255,.50);
-}
+body.day .badge{ background:rgba(255,255,255,.50); }
 
 .chips{
   display:flex;
@@ -390,9 +334,7 @@ body.day .badge{
   color: rgba(232,236,255,.6);
   font-size: 12px;
 }
-body.day .hint{
-  color: rgba(7,16,34,.55);
-}
+body.day .hint{ color: rgba(7,16,34,.55); }
 
 .mini-link{
   font-size:12px;
@@ -404,11 +346,8 @@ body.day .hint{
   background: rgba(255,255,255,.06);
   backdrop-filter: blur(10px);
 }
-.mini-link:hover{
-  background: rgba(255,255,255,.10);
-}
+.mini-link:hover{ background: rgba(255,255,255,.10); }
 
-/* Mobile tweaks */
 @media (max-width: 640px){
   .top{ flex-direction:column; align-items:flex-start; }
   .chips{ justify-content:flex-start; }

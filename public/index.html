@@ -4,7 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Glass Village — Day/Night</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ✅ Correct CSS link -->
+  /styles.css
 </head>
 <body>
   <!-- FX canvas (rain/fog overlay) -->
@@ -29,7 +31,7 @@
     <div class="layer village village-mid" data-depth="0.14" aria-hidden="true"></div>
     <div class="layer village village-front" data-depth="0.18" aria-hidden="true"></div>
 
-    <!-- Minimal glass HUD (no big widget) -->
+    <!-- Minimal glass HUD -->
     <main class="hud">
       <header class="top">
         <div class="brand">
@@ -47,11 +49,11 @@
 
       <footer class="footer">
         <span class="hint">Move your mouse — parallax + weather react subtly.</span>
-        <a class="mini-link" href="/health">/health</a>
-      </footer>
+        <a class="mini-link" href</footer>
     </main>
   </div>
 
-  <script src="app.js"></script>
+  <!-- ✅ Correct JS script (defer ensures DOM is ready) -->
+  /app.js</script>
 </body>
 </html>
