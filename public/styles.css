@@ -140,7 +140,7 @@ body.day .stars{ opacity:0.08; }
   z-index:1;
 }
 .hills-back{
-  opacity:.35;
+  opacity:.20;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.14) 50%, rgba(0,0,0,.55) 100%),
     radial-gradient(1200px 600px at 50% 100%, rgba(124,77,255,.10), transparent 60%),
@@ -152,7 +152,7 @@ body.day .stars{ opacity:0.08; }
   );
 }
 .hills-mid{
-  opacity:.55;
+  opacity:.30;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.18) 40%, rgba(0,0,0,.70) 100%),
     radial-gradient(1200px 540px at 50% 100%, rgba(34,211,238,.10), transparent 58%),
@@ -186,7 +186,7 @@ body.day .hills-mid{
   z-index:2;
 }
 .village-back{
-  opacity:.42;
+  opacity:.60;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.18) 45%, rgba(0,0,0,.62) 100%),
     radial-gradient(1200px 520px at 50% 100%, rgba(124,77,255,.12), transparent 55%),
@@ -207,7 +207,7 @@ body.day .hills-mid{
   );
 }
 .village-mid{
-  opacity:.70;
+  opacity:.85;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,.80) 100%),
     linear-gradient(0deg, #050614 0%, #050614 100%);
@@ -228,7 +228,7 @@ body.day .hills-mid{
   );
 }
 .village-front{
-  opacity:.92;
+  opacity:1.0;
   background-image:
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.28) 35%, rgba(0,0,0,.90) 100%),
     linear-gradient(0deg, #040511 0%, #040511 100%);
@@ -239,9 +239,21 @@ body.day .hills-mid{
     100% 100%, 0 100%
   );
 }
-body.day .village-back{ opacity:.22; }
-body.day .village-mid{ opacity:.30; }
-body.day .village-front{ opacity:.40; }
+.village-forefront{
+  opacity:1.0;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.30) 30%, rgba(0,0,0,.95) 100%),
+    linear-gradient(0deg, #03040e 0%, #03040e 100%);
+  clip-path: polygon(
+    0 96%, 15% 94%, 30% 95%, 45% 92%, 60% 94%,
+    75% 91%, 90% 93%, 100% 90%,
+    100% 100%, 0 100%
+  );
+}
+body.day .village-back{ opacity:.15; }
+body.day .village-mid{ opacity:.20; }
+body.day .village-front{ opacity:.25; }
+body.day .village-forefront{ opacity:.30; }
 
 /* HUD */
 .hud{
