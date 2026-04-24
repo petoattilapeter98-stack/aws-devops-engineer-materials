@@ -8,12 +8,8 @@ const port = process.env.PORT || 8080;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files from /public
 app.use(express.static(path.join(__dirname, "public")));
 
-// Optional health endpoint
 app.get("/health", (_req, res) => res.status(200).json({ status: "ok" }));
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+app.listen(port, () => console.log(`Listening on ${port}`));

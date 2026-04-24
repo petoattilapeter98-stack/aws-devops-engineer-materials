@@ -2,14 +2,13 @@
   /* Night defaults */
   --bg1:#060714;
   --bg2:#0b1030;
-
   --neon:#7c4dff;
   --neon2:#22d3ee;
 
   --text:#e8ecff;
   --muted:rgba(232,236,255,.72);
-
   --stroke:rgba(255,255,255,.18);
+
   --shadow: 0 20px 60px rgba(0,0,0,.55);
 }
 
@@ -17,14 +16,13 @@
 body.day{
   --bg1:#eaf2ff;
   --bg2:#b9d8ff;
-
   --neon:#2b6cff;
   --neon2:#00bcd4;
 
   --text:#071022;
   --muted:rgba(7,16,34,.70);
-
   --stroke:rgba(0,0,0,.10);
+
   --shadow: 0 20px 60px rgba(0,0,0,.18);
 }
 

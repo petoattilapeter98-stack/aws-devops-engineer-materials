@@ -67,8 +67,6 @@ function applyMode() {
   document.body.classList.toggle("day", !state.night);
   toggleMode.textContent = `Mode: ${state.night ? "Night" : "Day"}`;
   modeLabel.textContent = state.night ? "Night" : "Day";
-
-  // Reseed for slightly different feel
   seedFog();
   seedRain();
 }
@@ -130,7 +128,6 @@ function seedFog() {
 
 seedFog();
 
-/** Drawing */
 function drawRain() {
   const wind = state.mx * 2.4;
   ctx.lineCap = "round";
@@ -175,6 +172,7 @@ function drawFog() {
     g.addColorStop(0, "rgba(255,255,255,0)");
     g.addColorStop(1, "rgba(255,255,255,0.14)");
   }
+
   ctx.fillStyle = g;
   ctx.fillRect(0, state.h * 0.55, state.w, state.h);
 
