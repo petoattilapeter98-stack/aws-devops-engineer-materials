@@ -65,15 +65,32 @@ function setChip(btn, on, label) {
 toggleRain.addEventListener("click", () => {
   state.rain = !state.rain;
   setChip(toggleRain, state.rain, "Rain");
+  updateTimeWidget();
 });
 
 toggleFog.addEventListener("click", () => {
   state.fog = !state.fog;
   setChip(toggleFog, state.fog, "Fog");
+  updateTimeWidget();
 });
 
 setChip(toggleRain, state.rain, "Rain");
 setChip(toggleFog, state.fog, "Fog");
+
+/** Time Widget */
+function updateTimeWidget() {
+  const now = new Date();
+  const timeString = now.toLocaleTimeString();
+  const dateString = now.toLocaleDateString();
+  const weatherString = `Rain: ${state.rain ? 'On' : 'Off'} | Fog: ${state.fog ? 'On' : 'Off'}`;
+
+  document.getElementById('timeDisplay').textContent = timeString;
+  document.getElementById('dateDisplay').textContent = dateString;
+  document.getElementById('weatherInfo').textContent = weatherString;
+}
+
+updateTimeWidget();
+setInterval(updateTimeWidget, 1000);
 
 /** Rain */
 function seedRain() {
